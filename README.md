@@ -10,7 +10,7 @@ This repository hosts a **representative subset** of the **FlapVis** dataset, a 
 
 All images are acquired by a self-developed FWFR named **USTB-Hawk** during real flight, rather than by rotary-wing UAVs or simulation. The data therefore reflects the genuine imaging conditions of onboard flapping-wing perception.
 
-![fig_flapvis_samples](C:\Users\ZeweiZhao\Downloads\fig_flapvis_samples.png)
+![fig_flapvis_samples](figs/fig_flapvis_samples.png)
 
 ### Motion-degraded, small-target, diverse scenes
 
