@@ -99,7 +99,5 @@ A COCO-format file (`annotations.json`) containing the `images`, `annotations`, 
 
 ## Data Availability
 
-A representative subset of the FlapVis dataset is provided in this repository for
-verification purposes. The complete dataset will be made publicly available upon
-publication of the associated paper.
+The complete FlapVis dataset is currently being organized and will be released after annotation verification. Researchers interested in the full dataset may request access from the corresponding author via email.
 
