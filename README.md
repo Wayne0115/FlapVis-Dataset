@@ -36,7 +36,7 @@ carefully checked to ensure labeling consistency.
 
 | Property             | Value                                  |
 | -------------------- | -------------------------------------- |
-| Platform             | USTB-Hawk (flapping-wing flying robot) |
+| Platform             | USTB-Hawk (Flapping-wing flying robot) |
 | Images (this subset) | 150                                    |
 | Annotated instances  | 570                                    |
 | Resolution           | 640 × 320                              |
