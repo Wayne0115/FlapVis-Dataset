@@ -8,8 +8,7 @@ robot (FWFR). Unlike conventional aerial datasets collected by relatively stable
 rotary-wing UAVs, FlapVis is captured during actual flapping-wing flight, where the
 onboard camera is affected by image jitter and unstable imaging conditions. As a result,
 the dataset naturally contains typical visual degradation characteristics of FWFRs, such
-as motion blur and weak target textures. The complete FlapVis dataset will be made
-publicly available upon publication of the associated paper.
+as motion blur and weak target textures.
 
 ## Highlights
 
