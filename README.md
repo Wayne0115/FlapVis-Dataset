@@ -39,7 +39,6 @@ carefully checked to ensure labeling consistency.
 | Platform             | USTB-Hawk (Flapping-wing flying robot) |
 | Images (this subset) | 150                                    |
 | Annotated instances  | 570                                    |
-| Resolution           | 640 × 320                              |
 | Categories           | 2 (`car`, `people`)                    |
 | Annotation format    | YOLO (`.txt`) and COCO (`.json`)       |
 
