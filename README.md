@@ -35,8 +35,17 @@ illumination conditions, and exhibit flapping-induced motion blur, frequent atti
 changes, wide-angle lens distortion, and occasional occlusion by the airframe.
 
 Small targets dominate FlapVis: at the 640 × 640 network input, the median instance
-size is about 13 pixels, and more than 90% of the instances are smaller than
-32 × 32 pixels.
+size is about 13 pixels (about 20 pixels for cars and 11 pixels for people), more than
+90% of the instances are smaller than 32 × 32 pixels, and more than 60% are smaller
+than 16 × 16 pixels. Each instance is further assigned a blur level (light, medium, or
+heavy) according to a no-reference blur metric computed on its local region, and
+motion blur affects targets of all sizes, including the smallest ones.
+
+![fig_flapvis_stats](figs/fig_flapvis_stats.png)
+
+*Dataset statistics. (a) Distribution of instance sizes (√wh, measured at the
+640 × 640 network input) for each category, with the 8-, 16-, and 32-pixel boundaries
+marked. (b) Number of instances in each size bin and blur level.*
 
 ### Manually annotated and cross-reviewed
 
