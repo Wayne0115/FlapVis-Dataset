@@ -41,7 +41,9 @@ than 16 × 16 pixels. Each instance is further assigned a blur level (light, med
 heavy) according to a no-reference blur metric computed on its local region, and
 motion blur affects targets of all sizes, including the smallest ones.
 
-![fig_flapvis_stats](figs/fig_flapvis_stats.png)
+<p align="center">
+  <img src="figs/fig_flapvis_stats.png" alt="fig_flapvis_stats" width="560">
+</p>
 
 *Dataset statistics. (a) Distribution of instance sizes (√wh, measured at the
 640 × 640 network input) for each category, with the 8-, 16-, and 32-pixel boundaries
