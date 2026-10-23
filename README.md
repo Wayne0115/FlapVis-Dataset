@@ -18,34 +18,47 @@ All images are acquired by a self-developed FWFR named **USTB-Hawk** during real
 rather than by rotary-wing UAVs or simulation. The data therefore reflects the genuine
 imaging conditions of onboard flapping-wing perception.
 
-![fig_flapvis_samples](figs/fig_flapvis_samples.png)
+![fig_flapvis_samples](figs/fig_flapvis_samples_v2.jpg)
+
+*Representative samples. Top row, from left to right: campus area under severe
+jitter-induced blur, highland meadow, sports field, and construction site. Bottom row:
+urban intersection, canal road, hilly scrubland, and farmland with parts of the airframe
+entering the field of view.*
 
 ### Motion-degraded, small-target, diverse scenes
 
-The onboard camera records multiple low-altitude ground scenes under diverse conditions,
-including playgrounds, grasslands, campus roads, urban intersections, and open outdoor
-environments. Most targets are small-scale (bounding boxes smaller than 20 × 20 pixels),
-posing challenges for accurate detection.
+The full dataset contains **7,049 images** from **36 flight sequences** recorded at
+**11 sites**, covering eight scene types: campus area, highland meadow, sports field,
+construction site, urban area, canal road, hilly scrubland, and farmland. The sequences
+span nadir to oblique viewing angles, various flight altitudes, and different
+illumination conditions, and exhibit flapping-induced motion blur, frequent attitude
+changes, wide-angle lens distortion, and occasional occlusion by the airframe.
 
-### Manually annotated and quality-checked
+Small targets dominate FlapVis: at the 640 × 640 network input, the median instance
+size is about 13 pixels, and more than 90% of the instances are smaller than
+32 × 32 pixels.
 
-All selected frames are manually annotated with bounding boxes, and the annotations are
-carefully checked to ensure labeling consistency.
+### Manually annotated and cross-reviewed
 
-## Subset Overview
+All visible `car` and `people` instances are manually annotated with bounding boxes.
+Every annotation has been reviewed and verified by multiple annotators to ensure
+labeling accuracy and consistency.
 
-| Property             | Value                                  |
-| -------------------- | -------------------------------------- |
-| Platform             | USTB-Hawk (Flapping-wing flying robot) |
-| Images (this subset) | 150                                    |
-| Annotated instances  | 570                                    |
-| Categories           | 2 (`car`, `people`)                    |
-| Annotation format    | YOLO (`.txt`) and COCO (`.json`)       |
+## Dataset Overview
+
+| Property                 | Full dataset                           | This subset |
+| ------------------------ | -------------------------------------- | ----------- |
+| Platform                 | USTB-Hawk (flapping-wing flying robot) | same        |
+| Images                   | 7,049                                  | 150         |
+| Annotated instances      | 24,366 (10,552 car / 13,814 people)    | 570         |
+| Flight sequences / sites | 36 / 11                                | —           |
+| Categories               | 2 (`car`, `people`)                    | same        |
+| Annotation format        | YOLO (`.txt`)                          | YOLO (`.txt`) and COCO (`.json`) |
 
 > **Note:** This repository provides only a representative subset of FlapVis for
-> verification purposes. The complete dataset (3052 images, split 2441 / 305 / 306 for
-> train / val / test) will be made publicly available upon publication of the associated
-> paper.
+> verification purposes. The complete dataset (7,049 images, split 4,917 / 728 / 1,404
+> for train / val / test) will be made publicly available upon publication of the
+> associated paper.
 
 ## Categories
 
@@ -54,14 +67,15 @@ carefully checked to ensure labeling consistency.
 | 0    | car    |
 | 1    | people |
 
-## Data Collection and Preprocessing
+## Data Collection and Splitting
 
 The raw footage is recorded by the onboard camera of USTB-Hawk during actual
-flapping-wing flight. To reduce temporal redundancy while preserving scene diversity,
-one frame is extracted every 30 frames from the recorded videos. Only frames containing
-at least one target are retained, and all retained frames are manually annotated. The
-samples in this subset are selected by stratified sampling across scene groups to cover
-the diversity of the full dataset.
+flapping-wing flight, and frames are sampled from each flight sequence. Because adjacent
+frames are highly redundant, the dataset is split by sequence rather than by frame:
+sequences with highly similar views are grouped and assigned to the same subset, every
+recording site appears in the training set, and no validation or test image has a
+near-duplicate in the training set. The samples in this subset are selected by
+stratified sampling across scene groups.
 
 ## Data Structure
 
@@ -97,5 +111,6 @@ A COCO-format file (`annotations.json`) containing the `images`, `annotations`, 
 
 ## Data Availability
 
-The complete FlapVis dataset is currently being organized and will be released after annotation verification. Researchers interested in the full dataset may request access from the corresponding author via email.
-
+The complete FlapVis dataset will be released upon publication of the associated paper.
+Researchers interested in the full dataset may request access from the corresponding
+author via email.
